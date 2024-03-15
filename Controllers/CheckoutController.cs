@@ -40,7 +40,7 @@ public class CheckoutController : Controller
             ItemData item = new ItemData("Mì tôm hảo hảo ly", 1, 2000);
             List<ItemData> items = new List<ItemData>();
             items.Add(item);
-            PaymentData paymentData = new PaymentData(orderCode, 2000, "Thanh toan don hang", items, "https://localhost:3002/cancel", "https://localhost:3002/success");
+            PaymentData paymentData = new PaymentData(orderCode, 11000, "Thanh toan don hang", items, "http://localhost:3000/cancel", "http://localhost:3000/success");
 
             CreatePaymentResult createPayment = await _payOS.createPaymentLink(paymentData);
 
@@ -49,7 +49,7 @@ public class CheckoutController : Controller
         catch (System.Exception exception)
         {
             Console.WriteLine(exception);
-            return Redirect("https://localhost:3002/");
+            return Redirect("http://localhost:3000/");
         }
     }
 }
